@@ -1,0 +1,45 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage4.master.cs" Inherits="MasterPage4" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Untitled Page</title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body background="Images/background_for_website.jpg">
+<body >
+    <form id="form1" runat="server">
+    
+    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" 
+        codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" 
+        height="90" style="width: 958px">
+<param name="movie" value="Service1.swf" />
+<param name="quality" value="best" />
+<param name="menu" value="true" />
+<param name="allowScriptAccess" value="sameDomain" />
+<embed src="Service1.swf" quality="best" menu="true" width="1024" height="98" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" allowScriptAccess="sameDomain" />
+</object>
+
+<div style="position:absolute; top: 168px; left: 10px; width: 949px; height: 276px;">
+   
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    <div style="position:absolute">
+        <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Images/Object 1 (CMYK) on Layer 1 300 x 300 dpi.gif" 
+            onclick="ImageButton1_Click"             
+            
+            
+            
+            style="position:absolute;  height: 39px; width: 97px; top: 50px; left: 30px;" />
+        <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/Images/home_button.png" 
+            onclick="ImageButton2_Click" 
+            style="position:absolute; top: 8px; left: 33px; width: 94px;" 
+            Height="30px" />
+    </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,75 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Untitled Page</title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        #Object_PDA
+        {
+            width: 1021px;
+            height: 135px;
+            top: 170px;
+            left: 2px;
+            position: absolute;
+            z-index: -1;
+        }
+        #Object1
+        {
+            top: 106px;
+            left: 303px;
+            position: absolute;
+            height: 99px;
+            width: 506px;
+        }
+    </style>
+<script language="javascript" type="text/javascript">
+// <!CDATA[
+
+function Object1_onclick() {
+
+}
+
+// ]]>
+</script>
+<script language="javascript" type="text/javascript" for="Object1" event="onclick">
+// <!CDATA[
+return Object1_onclick()
+// ]]>
+</script>
+</head>
+<body background="Images/background_for_website.jpg">
+
+    <form id="form1" runat="server">
+ <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" 
+        codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" 
+        height="90" style="width: 800px">
+<param name="movie" value="Service1.swf" />
+<param name="quality" value="best" />
+<param name="menu" value="true" />
+<param name="allowScriptAccess" value="sameDomain" />
+<embed src="Service1.swf" quality="best" menu="true" width="1024" height="98" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" allowScriptAccess="sameDomain" />
+</object>
+
+  <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" 
+    codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#ve rsion=7,0,19,0" 
+    name="Object_PDA" id="Object1" title="PDA_YouTube">
+    <param name="movie" value="flashheader.swf">
+    <param name="quality" value="high">
+    <embed src="flashheader.swf" width="500px" height="100px" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" name="Object_PDA" swliveconnect="false"></embed>
+  </object>
+
+  
+    <div style="position:absolute; top: 215px; left: 15px; width: 796px; height: 490px;">
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    <p>
+        &nbsp;</p>
+    </form>
+</body>
+</html>
