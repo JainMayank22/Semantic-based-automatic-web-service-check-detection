@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://v1.fraudlabs.com/soap/IP2ProxyWebService" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://v1.fraudlabs.com/soap/IP2ProxyWebService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://v1.fraudlabs.com/soap/IP2ProxyWebService">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+      <xsd:complexType name="IP2ProxyInput">
+        <xsd:all>
+          <xsd:element minOccurs="0" maxOccurs="1" name="IP" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="LICENSE" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="IP2ProxyOutput">
+        <xsd:all>
+          <xsd:element minOccurs="0" maxOccurs="1" name="IPADDRESS" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="CREDITSAVAILABLE" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="ANONYMOUSPROXY" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="MESSAGE" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IP2ProxyRequest">
+    <wsdl:part name="inputdata" type="tns:IP2ProxyInput" />
+  </wsdl:message>
+  <wsdl:message name="IP2ProxyResponse">
+    <wsdl:part name="return" type="tns:IP2ProxyOutput" />
+  </wsdl:message>
+  <wsdl:portType name="IP2ProxyWebServicePortType">
+    <wsdl:operation name="IP2Proxy">
+      <documentation>The IP2Proxy Web Service</documentation>
+      <wsdl:input message="tns:IP2ProxyRequest" />
+      <wsdl:output message="tns:IP2ProxyResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="IP2ProxyWebServiceBinding" type="tns:IP2ProxyWebServicePortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="IP2Proxy">
+      <soap:operation soapAction="http://v1.fraudlabs.com/ip2proxywebservice.asmx/IP2Proxy" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="v1.fraudlabs.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="v1.fraudlabs.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="IP2ProxyWebService">
+    <wsdl:port name="IP2ProxyWebServicePort" binding="tns:IP2ProxyWebServiceBinding">
+      <soap:address location="http://v1.fraudlabs.com/ip2proxywebservice.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://v1.fraudlabs.com/soap/IP2CurrencyWebService" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://v1.fraudlabs.com/soap/IP2CurrencyWebService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://v1.fraudlabs.com/soap/IP2CurrencyWebService">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+      <xsd:complexType name="IP2CurrencyInput">
+        <xsd:all>
+          <xsd:element minOccurs="0" maxOccurs="1" name="VISITORIP" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="FROMCURRENCYCODE" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="TOCURRENCYCODE" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="FROMAMOUNT" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="LICENSE" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="IP2CurrencyOutput">
+        <xsd:all>
+          <xsd:element minOccurs="0" maxOccurs="1" name="FROMCURRENCYCODE" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="TOCURRENCYCODE" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="TOCURRENCYSYMBOL" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="FROMAMOUNT" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="TOAMOUNT" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="CONVERSIONRATE" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="TOCOUNTRYNAME" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="TOCOUNTRYCODE" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="CREDITSAVAILABLE" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="MESSAGE" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IP2CurrencyRequest">
+    <wsdl:part name="inputdata" type="tns:IP2CurrencyInput" />
+  </wsdl:message>
+  <wsdl:message name="IP2CurrencyResponse">
+    <wsdl:part name="return" type="tns:IP2CurrencyOutput" />
+  </wsdl:message>
+  <wsdl:portType name="IP2CurrencyWebServicePortType">
+    <wsdl:operation name="IP2Currency">
+      <documentation>The IP2Currency Web Service</documentation>
+      <wsdl:input message="tns:IP2CurrencyRequest" />
+      <wsdl:output message="tns:IP2CurrencyResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="IP2CurrencyWebServiceBinding" type="tns:IP2CurrencyWebServicePortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="IP2Currency">
+      <soap:operation soapAction="http://v1.fraudlabs.com/ip2currencywebservice.asmx/IP2Currency" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="v1.fraudlabs.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="v1.fraudlabs.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="IP2CurrencyWebService">
+    <wsdl:port name="IP2CurrencyWebServicePort" binding="tns:IP2CurrencyWebServiceBinding">
+      <soap:address location="http://v1.fraudlabs.com/ip2currencywebservice.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
